@@ -12,6 +12,7 @@ pub mod core;
 pub mod date;
 pub mod error;
 pub mod import;
+pub mod iter;
 pub mod priority;
 pub mod project;
 pub mod result;
