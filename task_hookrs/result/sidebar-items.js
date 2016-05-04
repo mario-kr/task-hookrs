@@ -1,0 +1,1 @@
+initSidebarItems({"type":[["Result","Result type wrapping the standard std::result::Result type"]]});

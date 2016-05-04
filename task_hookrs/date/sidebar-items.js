@@ -1,0 +1,1 @@
+initSidebarItems({"static":[["TASKWARRIOR_DATETIME_TEMPLATE","The date-time parsing template used to parse the date time data exported by taskwarrior."]],"struct":[["Date","Date is a NaiveDateTime-Wrapper object to be able to implement foreign traits on it"]]});

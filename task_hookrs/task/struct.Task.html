@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Task` struct in crate `task_hookrs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Task">
+
+    <title>task_hookrs::task::Task - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>task_hookrs</a>::<wbr><a href='index.html'>task</a></p><script>window.sidebarCurrent = {name: 'Task', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>task_hookrs</a>::<wbr><a href='index.html'>task</a>::<wbr><a class='struct' href=''>Task</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-402' class='srclink' href='../../src/task_hookrs/src/task.rs.html#37-59' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Task {
+    // some fields omitted
+}</pre><div class='docblock'><p>Task type</p>
+
+<p>A task must have four things:</p>
+
+<ul>
+<li>A Status</li>
+<li>An UUID</li>
+<li>An Entry-Date</li>
+<li>A Description</li>
+</ul>
+
+<p>all other Data is optional by taskwarrior. This type is a simple rust representation of the
+JSON exported by taskwarrior.</p>
+
+<p>It is deserializeable and serializeable via serde_json, so importing and exporting taskwarrior
+tasks is simply serializing and deserializing objects of this type.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(status: <a class='enum' href='../../task_hookrs/status/enum.TaskStatus.html' title='task_hookrs::status::TaskStatus'>TaskStatus</a>, uuid: <a class='struct' href='../../uuid/struct.Uuid.html' title='uuid::Uuid'>Uuid</a>, entry: <a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>, description: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>, annotations: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../task_hookrs/annotation/struct.Annotation.html' title='task_hookrs::annotation::Annotation'>Annotation</a>&gt;&gt;, depends: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;, due: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;, end: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;, imask: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i64.html'>i64</a>&gt;, mask: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;, modified: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;, parent: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../uuid/struct.Uuid.html' title='uuid::Uuid'>Uuid</a>&gt;, priority: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../task_hookrs/priority/enum.TaskPriority.html' title='task_hookrs::priority::TaskPriority'>TaskPriority</a>&gt;, project: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../../task_hookrs/project/type.Project.html' title='task_hookrs::project::Project'>Project</a>&gt;, recur: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;, scheduled: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;, start: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;, tags: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../task_hookrs/tag/type.Tag.html' title='task_hookrs::tag::Tag'>Tag</a>&gt;&gt;, until: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;, wait: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;) -&gt; <a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a></code></h4>
+<div class='docblock'><p>Create a new Task instance</p>
+</div><h4 id='method.status' class='method'><code>fn <a href='#method.status' class='fnname'>status</a>(&amp;self) -&gt; &amp;<a class='enum' href='../../task_hookrs/status/enum.TaskStatus.html' title='task_hookrs::status::TaskStatus'>TaskStatus</a></code></h4>
+<div class='docblock'><p>Get the status of the task</p>
+</div><h4 id='method.uuid' class='method'><code>fn <a href='#method.uuid' class='fnname'>uuid</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../uuid/struct.Uuid.html' title='uuid::Uuid'>Uuid</a></code></h4>
+<div class='docblock'><p>Get the uuid of the task</p>
+</div><h4 id='method.entry' class='method'><code>fn <a href='#method.entry' class='fnname'>entry</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a></code></h4>
+<div class='docblock'><p>Get the entry date of the task</p>
+</div><h4 id='method.description' class='method'><code>fn <a href='#method.description' class='fnname'>description</a>(&amp;self) -&gt; &amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Get the description of the task</p>
+</div><h4 id='method.annotations' class='method'><code>fn <a href='#method.annotations' class='fnname'>annotations</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../task_hookrs/annotation/struct.Annotation.html' title='task_hookrs::annotation::Annotation'>Annotation</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Get the annotations of the task</p>
+</div><h4 id='method.add_annotation' class='method'><code>fn <a href='#method.add_annotation' class='fnname'>add_annotation</a>(&amp;mut self, an: <a class='struct' href='../../task_hookrs/annotation/struct.Annotation.html' title='task_hookrs::annotation::Annotation'>Annotation</a>)</code></h4>
+<div class='docblock'><p>Add an annotation to this task</p>
+</div><h4 id='method.add_annotations' class='method'><code>fn <a href='#method.add_annotations' class='fnname'>add_annotations</a>&lt;I: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='struct' href='../../task_hookrs/annotation/struct.Annotation.html' title='task_hookrs::annotation::Annotation'>Annotation</a>&gt;&gt;(&amp;mut self, i: I)</code></h4>
+<div class='docblock'><p>Add annotations to this task</p>
+</div><h4 id='method.depends' class='method'><code>fn <a href='#method.depends' class='fnname'>depends</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Get the depends of the task</p>
+
+<p>This is exported as String by now, which might change in future</p>
+</div><h4 id='method.due' class='method'><code>fn <a href='#method.due' class='fnname'>due</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;</code></h4>
+<div class='docblock'><p>Get the due date of the task</p>
+</div><h4 id='method.end' class='method'><code>fn <a href='#method.end' class='fnname'>end</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;</code></h4>
+<div class='docblock'><p>Get the end date of the task</p>
+</div><h4 id='method.imask' class='method'><code>fn <a href='#method.imask' class='fnname'>imask</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i64.html'>i64</a>&gt;</code></h4>
+<div class='docblock'><p>Get the imask of the task</p>
+</div><h4 id='method.mask' class='method'><code>fn <a href='#method.mask' class='fnname'>mask</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Get the mask of the task</p>
+</div><h4 id='method.modified' class='method'><code>fn <a href='#method.modified' class='fnname'>modified</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;</code></h4>
+<div class='docblock'><p>Get the modified date of the task</p>
+</div><h4 id='method.parent' class='method'><code>fn <a href='#method.parent' class='fnname'>parent</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../uuid/struct.Uuid.html' title='uuid::Uuid'>Uuid</a>&gt;</code></h4>
+<div class='docblock'><p>Get the parent of the task</p>
+</div><h4 id='method.priority' class='method'><code>fn <a href='#method.priority' class='fnname'>priority</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='enum' href='../../task_hookrs/priority/enum.TaskPriority.html' title='task_hookrs::priority::TaskPriority'>TaskPriority</a>&gt;</code></h4>
+<div class='docblock'><p>Get the priority of the task</p>
+</div><h4 id='method.project' class='method'><code>fn <a href='#method.project' class='fnname'>project</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='type' href='../../task_hookrs/project/type.Project.html' title='task_hookrs::project::Project'>Project</a>&gt;</code></h4>
+<div class='docblock'><p>Get the project of the task</p>
+</div><h4 id='method.recur' class='method'><code>fn <a href='#method.recur' class='fnname'>recur</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Get the recur of the task</p>
+
+<p>This is exported as String by now. This might change in future versions of this crate.</p>
+</div><h4 id='method.scheduled' class='method'><code>fn <a href='#method.scheduled' class='fnname'>scheduled</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;</code></h4>
+<div class='docblock'><p>Get the scheduled date of the task</p>
+</div><h4 id='method.start' class='method'><code>fn <a href='#method.start' class='fnname'>start</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;</code></h4>
+<div class='docblock'><p>Get the start date of the task</p>
+</div><h4 id='method.tags' class='method'><code>fn <a href='#method.tags' class='fnname'>tags</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='type' href='../../task_hookrs/tag/type.Tag.html' title='task_hookrs::tag::Tag'>Tag</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Get the tags of the task</p>
+</div><h4 id='method.until' class='method'><code>fn <a href='#method.until' class='fnname'>until</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;</code></h4>
+<div class='docblock'><p>Get the until date of the task</p>
+</div><h4 id='method.wait' class='method'><code>fn <a href='#method.wait' class='fnname'>wait</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../../task_hookrs/date/struct.Date.html' title='task_hookrs::date::Date'>Date</a>&gt;</code></h4>
+<div class='docblock'><p>Get the wait date of the task</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../serde/ser/trait.Serialize.html' title='serde::ser::Serialize'>Serialize</a> for <a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a></code></h3><div class='impl-items'><h4 id='method.serialize' class='method'><code>fn <a href='../../serde/ser/trait.Serialize.html#tymethod.serialize' class='fnname'>serialize</a>&lt;S&gt;(&amp;self, serializer: &amp;mut S) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>RResult</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, S::Error&gt; <span class='where'>where S: <a class='trait' href='../../serde/ser/trait.Serializer.html' title='serde::ser::Serializer'>Serializer</a></span></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='../../serde/de/trait.Deserialize.html' title='serde::de::Deserialize'>Deserialize</a> for <a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a></code></h3><div class='impl-items'><h4 id='method.deserialize' class='method'><code>fn <a href='../../serde/de/trait.Deserialize.html#tymethod.deserialize' class='fnname'>deserialize</a>&lt;D&gt;(deserializer: &amp;mut D) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>RResult</a>&lt;<a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a>, D::Error&gt; <span class='where'>where D: <a class='trait' href='../../serde/de/trait.Deserializer.html' title='serde::de::Deserializer'>Deserializer</a></span></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a></code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><span class="since">1.0.0</span></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../task_hookrs/task/struct.Task.html' title='task_hookrs::task::Task'>Task</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "task_hookrs";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
