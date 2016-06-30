@@ -263,23 +263,23 @@ impl<'a> MapVisitor for TaskVisitor<'a> {
         where S: Serializer
     {
         match self.state {
-            0 => {
+            3 => {
                 self.state += 1;
                 Ok(Some(try!(serializer.serialize_struct_elt("status", &self.value.status))))
             },
-            1 => {
+            4 => {
                 self.state += 1;
                 Ok(Some(try!(serializer.serialize_struct_elt("uuid", &self.value.uuid))))
             },
-            2 => {
+            1 => {
                 self.state += 1;
                 Ok(Some(try!(serializer.serialize_struct_elt("entry", &self.value.entry))))
             },
-            3 => {
+            0 => {
                 self.state += 1;
                 Ok(Some(try!(serializer.serialize_struct_elt("description", &self.value.description))))
             },
-            4 => {
+            10 => {
                 self.state += 1;
                 Ok(Some(try!(serializer.serialize_struct_elt("annotations", &self.value.annotations))))
             },
@@ -303,7 +303,7 @@ impl<'a> MapVisitor for TaskVisitor<'a> {
                 self.state += 1;
                 Ok(Some(try!(serializer.serialize_struct_elt("mask", &self.value.mask))))
             },
-            10 => {
+            2 => {
                 self.state += 1;
                 Ok(Some(try!(serializer.serialize_struct_elt("modified", &self.value.modified))))
             },
@@ -357,10 +357,11 @@ impl Deserialize for Task {
         where D: Deserializer
     {
         static FIELDS: &'static [&'static str] = &[
+            "description",
+            "entry",
+            "modified",
             "status",
             "uuid",
-            "entry",
-            "description",
 
             "annotations",
             "depends",
@@ -368,7 +369,6 @@ impl Deserialize for Task {
             "end",
             "imask",
             "mask",
-            "modified",
             "parent",
             "priority",
             "project",
