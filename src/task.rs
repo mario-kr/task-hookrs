@@ -256,23 +256,23 @@ impl<'a> MapVisitor for TaskVisitor<'a> {
         where S: Serializer
     {
         match self.state {
-            3 => {
+            0 => {
                 self.state += 1;
                 return Ok(Some(try!(serializer.serialize_struct_elt("status", &self.value.status))))
             },
-            4 => {
+            1 => {
                 self.state += 1;
                 return Ok(Some(try!(serializer.serialize_struct_elt("uuid", &self.value.uuid))))
             },
-            1 => {
+            2 => {
                 self.state += 1;
                 return Ok(Some(try!(serializer.serialize_struct_elt("entry", &self.value.entry))))
             },
-            0 => {
+            3 => {
                 self.state += 1;
                 return Ok(Some(try!(serializer.serialize_struct_elt("description", &self.value.description))))
             },
-            10 => {
+            4 => {
                 self.state += 1;
                 return Ok(Some(try!(serializer.serialize_struct_elt("annotations", &self.value.annotations))))
             },
